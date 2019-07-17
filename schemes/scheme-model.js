@@ -21,7 +21,17 @@ function findById(id) {
 		.first();
 }
 
-function findSteps() {}
+function findSteps(id) {
+	// return db('schemes')
+	// .where({ id })
+	// .first()
+	// .leftJoin('steps', 'schemes.id', 'steps.schemesid');
+	return (
+		db('steps')
+			.where({ scheme_id: id })
+			.select('*')
+	);
+}
 
 function add() {}
 
