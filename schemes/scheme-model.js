@@ -22,21 +22,23 @@ function findById(id) {
 }
 
 function findSteps(id) {
-	// return db('schemes')
-	// .where({ id })
-	// .first()
-	// .leftJoin('steps', 'schemes.id', 'steps.schemesid');
-	return db('steps')
-		.where({ scheme_id: id })
-		.select('*');
+	return db
+		.select('steps.id', 'step_number', 'instructions', 'scheme_name')
+		.from('steps')
+		.innerJoin('schemes', 'schemes.id', 'steps.scheme_id')
+		.where({ scheme_id: id });
 }
 
-function add(scheme) {
-	return db('schemes').insert(scheme);
+async function add(scheme) {
+	const [id] = await db('schemes').insert(scheme);
+	return findById(id);
 }
 
 function addStep() {}
 
-function update() {}
+async function update(changes, id) {
+	await findById(id).update(changes);
+	return findById(id);
+}
 
 function remove() {}
