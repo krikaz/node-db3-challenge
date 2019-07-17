@@ -12,23 +12,21 @@ module.exports = {
 };
 
 function find() {
-  return db('schemes');
+	return db('schemes');
 }
 
-function findById() {
+function findById(id) {
+	return db('schemes')
+		.where({ id })
+		.first();
 }
 
-function findSteps() {
-}
+function findSteps() {}
 
-function add() {
-}
+function add() {}
 
-function addStep() {
-}
+function addStep() {}
 
-function update() {
-}
+function update() {}
 
-function remove() {
-}
+function remove() {}
