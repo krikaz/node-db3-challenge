@@ -12,5 +12,23 @@ module.exports = {
 };
 
 function find() {
-	return db('schemes');
+  return db('schemes');
+}
+
+function findById() {
+}
+
+function findSteps() {
+}
+
+function add() {
+}
+
+function addStep() {
+}
+
+function update() {
+}
+
+function remove() {
 }
