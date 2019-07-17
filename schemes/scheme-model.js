@@ -41,4 +41,7 @@ async function update(changes, id) {
 	return findById(id);
 }
 
-function remove() {}
+function remove(id) {
+  findById(id).del();
+  return findById(id)
+}
