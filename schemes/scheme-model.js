@@ -26,14 +26,14 @@ function findSteps(id) {
 	// .where({ id })
 	// .first()
 	// .leftJoin('steps', 'schemes.id', 'steps.schemesid');
-	return (
-		db('steps')
-			.where({ scheme_id: id })
-			.select('*')
-	);
+	return db('steps')
+		.where({ scheme_id: id })
+		.select('*');
 }
 
-function add() {}
+function add(scheme) {
+	return db('schemes').insert(scheme);
+}
 
 function addStep() {}
 
